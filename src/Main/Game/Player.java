@@ -1,10 +1,5 @@
 package Main.Game;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Player extends GameObjects{
@@ -28,7 +23,10 @@ public class Player extends GameObjects{
     public boolean isWin() {
         return win;
     }
-    public void setWin(int [][] arr){
+    public void setWon(){
+        this.win = false;
+    }
+    public void checkWin(int [][] arr){
         for (int y = 0; y < arr.length; y++) {
             for (int x = 0; x < arr[y].length ; x++) {
                 if (arr[y][x] == 2){

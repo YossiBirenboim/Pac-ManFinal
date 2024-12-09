@@ -373,13 +373,21 @@ public class GamePanel extends JPanel implements Runnable {
             }
             System.out.println("The game it's over loser :( ");
         }
-        player.setWin(GameObjects.arrOfIndex);
+        player.checkWin(GameObjects.arrOfIndex);
         if (player.isWin()) {
             GameObjects.arrOfIndex = GameObjects.level_2;
             timeForSleeping = 6;
             player.ghostKillerEaten = false;
+            player.setLocationInY(25);
+            player.setLocationInX(25);
+            for (int i = 0; i < ghosts.length; i++){
+                ghosts[i].setLocationInX(250);
+                ghosts[i].setLocationInY(75);
+            }
+            player.setWon();
 
-//            if (listener != null) {
+
+//          if (listener != null) {
 //                listener.onWon();
 //            }
 //            System.out.println("You won !!! :)");
@@ -387,7 +395,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
     public void soundPlayer(){
-         soundManager.playSound( "src/Main/Game/Sounds/regolar.wav");
+         SoundManager.playSound( "src/Main/Game/Sounds/regolar.wav");
     }
 }
 
